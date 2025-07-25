@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pengulangan Bilangan Genap</title>
+  </head>
+  <!-- syifa x ppl 2-->
+  <body>
+    <!-- style -->
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #56a8f0;
+      }
+
+      .container {
+        text-align: center;
+        background-color: #97c7f3;
+        padding: 40px;
+        width: 400px;
+        border-radius: 20px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      input,
+      button {
+        display: block;
+        margin: 10px auto;
+        border-radius: 20px;
+        width: 300px;
+      }
+
+      input,
+      button {
+        padding: 10px;
+        font-size: 16px;
+      }
+
+      button {
+        cursor: pointer;
+        background-color: #4caf50;
+        color: #ffffff;
+        border: none;
+        border-radius: 20px;
+      }
+
+      button:hover {
+        background-color: #218838;
+      }
+
+      #result {
+        margin-top: 20px;
+        font-weight: bold;
+      }
+    </style>
+
+    <div class="container">
+      <h1>Pengulangan Bilangan Genap</h1>
+      <label for="min">Nilai Terkecil:</label>
+      <input type="number" id="min" placeholder="Masukkan nilai terkecil" />
+
+      <label for="max">Nilai Terbesar:</label>
+      <input type="number" id="max" placeholder="Masukkan nilai terbesar" />
+
+      <button onclick="generateEvenNumbers()">Tampilkan Bilangan Genap</button>
+
+      <div id="result"></div>
+    </div>
+    <!-- java script -->
+    <script>
+      function generateEvenNumbers() {
+        const min = parseInt(document.getElementById("min").value);
+        const max = parseInt(document.getElementById("max").value);
+        let result = [];
+
+        if (isNaN(min) || isNaN(max)) {
+          alert("Masukkan angka yang valid untuk nilai terkecil dan terbesar.");
+          return;
+        }
+
+        for (let i = min; i <= max; i++) {
+          if (i % 2 === 0) {
+            result.push(i);
+          }
+        }
+
+        document.getElementById("result").innerText =
+          "Bilangan genap: " + result.join(", ");
+        console.log(result); // Output ke console
+      }
+    </script>
+  </body>
+</html>

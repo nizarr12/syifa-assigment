@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Looping Bilangan Ganjil</title>
+  </head>
+  <body>
+    <!-- style -->
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+      }
+
+      body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        background-color: #39b8eb;
+      }
+
+      .container {
+        text-align: center;
+        padding: 30px;
+        border: 2px solid #333;
+        border-radius: 20px;
+        background-color: #ffffff;
+        width: 350px;
+        box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
+      }
+
+      h2 {
+        color: #333;
+        margin-bottom: 15px;
+      }
+
+      label {
+        color: #555;
+        font-weight: bold;
+      }
+
+      input[type="number"] {
+        width: 100%;
+        padding: 8px;
+        margin-top: 8px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+      }
+
+      button {
+        padding: 10px 20px;
+        font-size: 16px;
+        font-weight: bold;
+        color: white;
+        background-color: #28a745;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      button:hover {
+        background-color: #218838;
+      }
+
+      .output {
+        margin-top: 20px;
+        color: #333;
+        font-weight: bold;
+      }
+    </style>
+
+    <div class="container">
+      <h2>Looping Bilangan Ganjil</h2>
+      <label for="min">Nilai Terkecil:</label>
+      <input type="number" id="min" required />
+      <br />
+      <label for="max">Nilai Terbesar:</label>
+      <input type="number" id="max" required />
+      <br /><br />
+      <button onclick="generateOddNumbers()">Tampilkan Bilangan Ganjil</button>
+      <div id="output" class="output"></div>
+    </div>
+
+    <!-- java script -->
+    <script>
+      function generateOddNumbers() {
+        // Mendapatkan nilai input
+        const min = parseInt(document.getElementById("min").value);
+        const max = parseInt(document.getElementById("max").value);
+
+        // Memastikan input valid
+        if (isNaN(min) || isNaN(max)) {
+          alert("Silakan masukkan nilai yang valid.");
+          return;
+        }
+
+        // Mengosongkan output sebelumnya
+        document.getElementById("output").innerHTML = "";
+
+        // Looping dan memeriksa bilangan ganjil
+        for (let i = min; i <= max; i++) {
+          if (i % 2 !== 0) {
+            // Menampilkan hasil di halaman HTML
+            document.getElementById("output").innerHTML += i + "<br>";
+          }
+        }
+      }
+    </script>
+  </body>
+</html>
